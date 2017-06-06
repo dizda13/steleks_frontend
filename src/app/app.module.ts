@@ -10,6 +10,9 @@ import {SliderContectComponent} from "./components/slider-contect.component/slid
 import {PopularNewsComponent} from "./components/popular-news/popular-news.component";
 import {EventsComponent} from "./components/events/events.component";
 import {FooterComponent} from "./components/footer/footer.component";
+import {Routing} from "./app.routing";
+import {LoginComponent} from "./components/login/login.component";
+import {Home} from "./pages/home.component";
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import {FooterComponent} from "./components/footer/footer.component";
     SliderContectComponent,
     PopularNewsComponent,
     EventsComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    Home
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    MaterializeModule
+    MaterializeModule,
+    Routing
   ],
   providers: [],
   bootstrap: [AppComponent]
