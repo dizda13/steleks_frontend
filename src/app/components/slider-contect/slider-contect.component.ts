@@ -5,7 +5,8 @@ import {Component} from "@angular/core";
 
 @Component({
   selector:"slider-contect",
-  templateUrl:"./slider-contect.component.html"
+  templateUrl:"./slider-contect.component.html",
+  styleUrls:['./slider-contect.component.css']
 })
 
 export class SliderContectComponent{
