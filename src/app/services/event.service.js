@@ -42,4 +42,4 @@ EventService = EventService_1 = __decorate([
 ], EventService);
 exports.EventService = EventService;
 var EventService_1;
-//# sourceMappingURL=event.service.js.map
+//# sourceMappingURL=events.service.js.map

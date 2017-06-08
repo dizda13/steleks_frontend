@@ -13,6 +13,9 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {Routing} from "./app.routing";
 import {LoginComponent} from "./components/login/login.component";
 import {Home} from "./pages/home.component";
+import {LoginService} from "./services/login.service";
+import {EventService} from "./services/event.service";
+import {ImageService} from "./services/image.service";
 
 @NgModule({
   declarations: [
@@ -30,9 +33,13 @@ import {Home} from "./pages/home.component";
     BrowserModule,
     HttpModule,
     MaterializeModule,
-    Routing
+    Routing,
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    EventService,
+    ImageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

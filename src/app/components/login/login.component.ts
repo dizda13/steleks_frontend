@@ -2,6 +2,7 @@
  * Created by admin on 06/06/2017.
  */
 import {Component} from "@angular/core";
+import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'login',
@@ -9,4 +10,24 @@ import {Component} from "@angular/core";
 })
 
 export class LoginComponent{
+
+  username: string;
+  passowrd: string;
+
+  constructor(private loginService: LoginService){
+
+  }
+
+  getPass(event: any){
+    this.passowrd = event.target.value
+  }
+
+  getUser(event: any){
+    this.username = event.target.value
+  }
+
+  login(){
+    console.log(this.username + " " + this.passowrd);
+    this.loginService.login(this.username,this.passowrd);
+  }
 }

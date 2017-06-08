@@ -12,15 +12,20 @@ import 'rxjs/Rx';
 @Injectable()
 export class EventService {
 
-  constructor(private http: Http) { }
-
-  private static EVENTSPATH: string='http://localhost:9020/events';
-  headers: Headers = new Headers({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*" });
+  private static EVENTSPATH: string='http://localhost:8080/events';
+  headers: Headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': "8080", 'Authorization': localStorage.getItem('token') });
   options: RequestOptions = new RequestOptions({ headers: this.headers });
+  events: Event[];
+  constructor(private http: Http) {
+  }
 
 
   getEvents(): Observable<Event[]>{
-    return this.http.get(EventService.EVENTSPATH).map(response=><Event[]>response.json()._embedded.events);
+    console.log(this.headers);
+    return this.http.get(EventService.EVENTSPATH+"/events", { headers: this.headers } ).map(response=>{
+      this.events=<Event[]>response.json()._embedded.events;
+      this.events[0].mediaSet=response.json()._embedded.events[0]._links.mediaSet.href;
+      return this.events});
   }
 
   addEvent(event: Event){
@@ -28,7 +33,7 @@ export class EventService {
   }
 
   getEvent(event: Event){
-    return this.http.get(EventService.EVENTSPATH+"/"+event.id).map(response => <Event>response.json());
+    return this.http.get(EventService.EVENTSPATH+"/"+event.id, this.options).map(response => <Event>response.json());
   }
 
   editEvent(event: Event){

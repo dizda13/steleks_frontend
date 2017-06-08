@@ -1,28 +1,11 @@
 <div class="slider">
 
   <ul class="slides">
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+
+    <li *ngFor="let event of events">
+      <img [src]="this.image"> <!-- random image -->
       <div class="caption left-align">
-        <slider-contect></slider-contect>
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-      <div class="caption left-align">
-        <slider-contect></slider-contect>
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-      <div class="caption left-align">
-        <slider-contect></slider-contect>
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-      <div class="caption left-align">
-        <slider-contect></slider-contect>
+        <slider-contect [title]="event.title" [shortText]="event.shortText"></slider-contect>
       </div>
     </li>
   </ul>

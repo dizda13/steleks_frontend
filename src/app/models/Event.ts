@@ -16,9 +16,9 @@ export class Event{
 
   private _createdById: number;
 
-  private _eventType: String;
+  private _eventType: string;
 
-  private _mediaSet: string[];
+  private _mediaSet: string;
 
 
   get id(): Number {
@@ -49,11 +49,11 @@ export class Event{
     return this._createdById;
   }
 
-  get eventType(): String {
+  get eventType(): string {
     return this._eventType;
   }
 
-  get mediaSet(): string[] {
+  get mediaSet(): string {
     return this._mediaSet;
   }
 
@@ -86,11 +86,11 @@ export class Event{
     this._createdById = value;
   }
 
-  set eventType(value: String) {
+  set eventType(value: string) {
     this._eventType = value;
   }
 
-  set mediaSet(value: string[]) {
+  set mediaSet(value: string) {
     this._mediaSet = value;
   }
 }
