@@ -1,11 +1,12 @@
 /**
  * Created by admin on 04/06/2017.
  */
-import {Component, NgModule, Input} from "@angular/core";
+import {Component, NgModule, Input, OnInit} from "@angular/core";
 import { SliderContectComponent } from "../slider-contect/slider-contect.component";
 import {EventService} from "../../services/event.service";
 import {Event} from "../../models/Event";
 import {ImageService} from "../../services/image.service";
+import {Media} from "../../models/Media";
 
 @Component({
   selector: 'news-slider',
@@ -17,17 +18,27 @@ import {ImageService} from "../../services/image.service";
 })*/
 
 
-export class NewsSliderComponent{
+export class NewsSliderComponent implements OnInit {
+  ngOnInit(): void {
+    this.getEvents();
+  }
 
   events: Event[];
+  images: Media[];
   image: string;
   constructor(private eventService: EventService, private imageService:ImageService){
-     this.getEvents();
-     imageService.getImage("http://localhost:8080/events/medias/3").subscribe(response=>this.image=response);
+    this.getEvents();
+
   }
 
   getEvents(){
-    this.eventService.getEvents().subscribe(response=>{this.events=response;console.log(this.events[0].mediaSet + " dino")});
+    this.eventService.getEvents().subscribe(response=>{
+      this.events=response;
+      this.imageService.getImage(this.events[0].mediaSet).subscribe(response=>{this.images=response;this.image=this.images[0].contentUrl});
+    });
   }
 
+  next(){
+
+  }
 }

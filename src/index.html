@@ -26,8 +26,16 @@
 </body>
 <script>
   $(document).ready(function(){
+    $('.slider').removeClass('initialized');
     $('.slider').slider();
     $('.slider').slider({height: 700});
+
+  });
+  $(window).load(function(){
+    $('.slider').removeClass('initialized');
+    $('.slider').slider();
+    $('.slider').slider({height: 700});
+    newsCardSize();
   });
 </script>
 <script>
@@ -40,8 +48,8 @@
     $(".hepek").css("width", container_width);
   }
 
-    $(window).resize(function(){newsCardSize();});
-    $(document).ready(newsCardSize());
+    $(window).resize(function(){newsCardSize(); $('.slider').slider('next');});
+    $(document).ready(function(){newsCardSize();});
 
 
 

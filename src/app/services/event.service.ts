@@ -7,6 +7,8 @@ import { Observable } from "rxjs";
 import { Event } from "../models/Event";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
+import {Media} from "../models/Media";
+import {EventResponseObject} from "../models/EventResponseObject";
 
 
 @Injectable()
@@ -16,16 +18,16 @@ export class EventService {
   headers: Headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': "8080", 'Authorization': localStorage.getItem('token') });
   options: RequestOptions = new RequestOptions({ headers: this.headers });
   events: Event[];
+  eventResponseOBjet: EventResponseObject;
   constructor(private http: Http) {
   }
 
 
   getEvents(): Observable<Event[]>{
-    console.log(this.headers);
     return this.http.get(EventService.EVENTSPATH+"/events", { headers: this.headers } ).map(response=>{
-      this.events=<Event[]>response.json()._embedded.events;
-      this.events[0].mediaSet=response.json()._embedded.events[0]._links.mediaSet.href;
-      return this.events});
+        this.events=<Event[]>response.json()._embedded.events;
+        this.events[0].mediaSet=<string>response.json()._embedded.events[0]._links.mediaSet.href;
+      return this.events;});
   }
 
   addEvent(event: Event){

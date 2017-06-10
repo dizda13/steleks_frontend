@@ -1,16 +1,42 @@
-<div class="slider">
+
+<div class="slider" >
 
   <ul class="slides">
 
     <li *ngFor="let event of events">
-      <img [src]="this.image"> <!-- random image -->
+      <img src="{{this.image}}">
       <div class="caption left-align">
         <slider-contect [title]="event.title" [shortText]="event.shortText"></slider-contect>
       </div>
     </li>
   </ul>
 
-  <a class="waves-effect waves-light btn z-depth-0 bold" style="position: absolute;bottom: 0;left: 0;margin-left: 5%;color: #2a2a2a;background: transparent;"><i class="material-icons left" style="-webkit-transform: rotate(180deg);">trending_flat</i>prev</a>
+  <a class="waves-effect waves-light btn z-depth-0 bold" style="position: absolute;bottom: 0;left: 0;margin-left: 5%;color: #2a2a2a;background: transparent;"><i class="material-icons left" style="-webkit-transform: rotate(180deg);" (click)="next()" >trending_flat</i>prev</a>
   <a class="waves-effect waves-light btn z-depth-0 bold" style="position: absolute;bottom: 0;right: 0;margin-right: 5%;color: #2a2a2a;background: transparent;"><i class="material-icons right" >trending_flat</i>next</a>
-
 </div>
+
+<!--<div class="carousel carousel-slider center" data-indicators="true">
+  &lt;!&ndash;<div class="carousel-fixed-item center">
+    <a class="btn waves-effect white grey-text darken-text-2">button</a>
+  </div>&ndash;&gt;
+
+    <div *ngFor="let event of events" [materializeParams]="[{full_width: true}]" class="carousel-item red white-text">
+      <img src="{{this.image}}">
+      <slider-contect [title]="event.title" [shortText]="event.shortText"></slider-contect>
+    </div>
+
+</div>-->
+<!--<div class="col l8 m12 s12 news-container">
+  <h3 class="yellow-tail bloc-title">Meetings & Events</h3>
+  <div materialize="carousel" [materializeParams]="[{full_width: true}]" class="carousel carousel-slider" data-indicators="true">
+
+    <div class="carousel-fixed-item center">
+      <a class="btn waves-effect white grey-text darken-text-2">button</a>
+    </div>
+
+    <a *ngFor="let event of events; let i = index" class="carousel-item" href="#{{i}}!">
+      <img src="{{this.image}}">
+      <slider-contect [title]="events[i].title" [shortText]="events[i].shortText"></slider-contect>
+    </a>
+  </div>
+</div>-->

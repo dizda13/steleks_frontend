@@ -4,6 +4,7 @@
 import {Injectable} from "@angular/core";
 import {RequestOptions, Headers, Http} from "@angular/http";
 import {Observable} from "rxjs";
+import {Media} from "../models/Media";
 
 @Injectable()
 export class ImageService{
@@ -14,8 +15,9 @@ export class ImageService{
   constructor(private http: Http) {
   }
 
-  getImage(url:string): Observable<string>{
-    return this.http.get(url, this.options).map(response=> {return <string>response.json().contentUrl;});
+  getImage(url:string): Observable<Media[]>{
+    console.log(url);
+    return this.http.get(url, this.options).map(response=> {return <Media[]>response.json()._embedded.medias;});
 
   }
 
