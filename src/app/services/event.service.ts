@@ -26,16 +26,15 @@ export class EventService {
   getEvents(): Observable<Event[]>{
     return this.http.get(EventService.EVENTSPATH+"/events", { headers: this.headers } ).map(response=>{
         this.events=<Event[]>response.json()._embedded.events;
-        this.events[0].mediaSet=<string>response.json()._embedded.events[0]._links.mediaSet.href;
-      return this.events;});
+        return this.events;});
   }
 
   addEvent(event: Event){
       return this.http.post(EventService.EVENTSPATH, JSON.stringify(event), this.options).map(response => <Event>response.json());
   }
 
-  getEvent(event: Event){
-    return this.http.get(EventService.EVENTSPATH+"/"+event.id, this.options).map(response => <Event>response.json());
+  getEvent(eventId: number): Observable<Event>{
+    return this.http.get(EventService.EVENTSPATH+"/events/"+eventId, this.options).map(response => <Event>response.json());
   }
 
   editEvent(event: Event){

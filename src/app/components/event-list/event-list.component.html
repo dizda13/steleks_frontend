@@ -1,0 +1,22 @@
+<div class="row container">
+  <div class="col s12">
+    <h2 class="header">{{this.type}}</h2>
+
+    <div class="card horizontal" *ngFor="let event of events">
+      <div class="card-image">
+        <img (hidden)="isUndefined(event.mediaSet)" [src]="event.mediaSet[0].contentUrl">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h6>
+            {{event.title}}
+          </h6>
+          <p>{{event.shortText}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Pročitaj više</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

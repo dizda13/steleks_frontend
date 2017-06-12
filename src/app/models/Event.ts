@@ -1,3 +1,5 @@
+import {Media} from "./Media";
+import {isUndefined} from "util";
 /**
  * Created by admin on 31/05/2017.
  */
@@ -18,8 +20,11 @@ export class Event{
 
   private _eventType: string;
 
-  private _mediaSet: string;
+  private _mediaSet: Media[];
 
+
+  constructor() {
+  }
 
   get id(): Number {
     return this._id;
@@ -53,7 +58,7 @@ export class Event{
     return this._eventType;
   }
 
-  get mediaSet(): string {
+  get mediaSet(): Media[] {
     return this._mediaSet;
   }
 
@@ -90,7 +95,13 @@ export class Event{
     this._eventType = value;
   }
 
-  set mediaSet(value: string) {
+  set mediaSet(value: Media[]) {
     this._mediaSet = value;
+  }
+
+  getMediaContectUrlById(i: number): string{
+    if(isUndefined(this.mediaSet))
+      return "";
+    return this.mediaSet[i].contentUrl;
   }
 }

@@ -34,4 +34,6 @@ export class Media{
   set createdById(value: number) {
     this._createdById = value;
   }
+
+
 }

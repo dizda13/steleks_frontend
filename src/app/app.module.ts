@@ -16,6 +16,8 @@ import {Home} from "./pages/home.component";
 import {LoginService} from "./services/login.service";
 import {EventService} from "./services/event.service";
 import {ImageService} from "./services/image.service";
+import {EventListComponent} from "./components/event-list/event-list.component";
+import {ReadEventComopnent} from "./components/read-event/read-event.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {ImageService} from "./services/image.service";
     EventsComponent,
     FooterComponent,
     LoginComponent,
-    Home
+    Home,
+    EventListComponent,
+    ReadEventComopnent
   ],
   imports: [
     BrowserModule,

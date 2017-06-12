@@ -19,22 +19,19 @@ import {Media} from "../../models/Media";
 
 
 export class NewsSliderComponent implements OnInit {
+
+  events: Event[];
+
   ngOnInit(): void {
     this.getEvents();
   }
 
-  events: Event[];
-  images: Media[];
-  image: string;
   constructor(private eventService: EventService, private imageService:ImageService){
-    this.getEvents();
-
   }
 
   getEvents(){
     this.eventService.getEvents().subscribe(response=>{
       this.events=response;
-      this.imageService.getImage(this.events[0].mediaSet).subscribe(response=>{this.images=response;this.image=this.images[0].contentUrl});
     });
   }
 
