@@ -1,8 +1,8 @@
 <div class="row container">
   <div class="col s12">
-    <h2 class="header">{{this.type}}</h2>
+    <h2 class="header" style="color: #a1a1a1; border-left: 5px solid; border-left-color: #ffc822; padding-left: 1%">{{this.type}}</h2>
 
-    <div class="card horizontal" *ngFor="let event of events">
+    <div class="card horizontal z-depth-4" *ngFor="let event of events">
       <div class="card-image">
         <img (hidden)="isUndefined(event.mediaSet)" [src]="event.mediaSet[0].contentUrl">
       </div>

@@ -99,9 +99,4 @@ export class Event{
     this._mediaSet = value;
   }
 
-  getMediaContectUrlById(i: number): string{
-    if(isUndefined(this.mediaSet))
-      return "";
-    return this.mediaSet[i].contentUrl;
-  }
 }

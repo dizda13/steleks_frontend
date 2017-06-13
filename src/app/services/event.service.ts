@@ -4,11 +4,11 @@
 import { Injectable } from '@angular/core';
 import {Headers, Http, RequestOptions, Response} from "@angular/http";
 import { Observable } from "rxjs";
-import { Event } from "../models/Event";
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 import {Media} from "../models/Media";
 import {EventResponseObject} from "../models/EventResponseObject";
+import {Event} from "../models/Event";
 
 
 @Injectable()
@@ -34,7 +34,7 @@ export class EventService {
   }
 
   getEvent(eventId: number): Observable<Event>{
-    return this.http.get(EventService.EVENTSPATH+"/events/"+eventId, this.options).map(response => <Event>response.json());
+    return this.http.get(EventService.EVENTSPATH+"/events/"+eventId+"?projection=eventProjection", this.options).map(response => <Event>response.json());
   }
 
   editEvent(event: Event){

@@ -26,18 +26,22 @@
 </body>
 <script>
   $(document).ready(function(){
-    $('.slider').removeClass('initialized');
-    $('.slider').slider();
-    $('.slider').slider({height: 700});
-
-  });
-  $(window).load(function(){
+    $('.carousel.carousel-slider').removeClass('initialized');
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
     $('.slider').removeClass('initialized');
     $('.slider').slider();
     $('.slider').slider({height: 700});
     newsCardSize();
   });
-  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $(window).load(function(){
+    $('.carousel.carousel-slider').removeClass('initialized');
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+    $('.slider').removeClass('initialized');
+    $('.slider').slider();
+    $('.slider').slider({height: 700});
+
+    newsCardSize();
+  });
 </script>
 <script>
   function newsCardSize(){
@@ -51,8 +55,5 @@
 
     $(window).resize(function(){newsCardSize(); $('.slider').slider('next');});
     $(document).ready(function(){newsCardSize();});
-
-
-
 </script>
 </html>
