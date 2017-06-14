@@ -2,6 +2,8 @@
  * Created by admin on 04/06/2017.
  */
 import {Component, Input} from "@angular/core";
+import {Router} from "@angular/router";
+import {Event} from "../../models/Event";
 
 @Component({
   selector:"slider-contect",
@@ -10,7 +12,14 @@ import {Component, Input} from "@angular/core";
 })
 
 export class SliderContectComponent{
-  @Input() title: String;
-  @Input() shortText: String;
+  @Input() event: Event;
 
+  constructor(private router: Router){
+
+  }
+
+  onReadMoreClick() {
+    console.log("CLICKED ON ID! " + this.event);
+    this.router.navigate(['events/' + this.event.id]);
+  }
 }

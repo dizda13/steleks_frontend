@@ -6,7 +6,7 @@
     <li *ngFor="let event of events">
       <img (show)="isUndefined(event.mediaSet)" [src]="event.mediaSet[0].contentUrl">
       <div class="caption left-align">
-        <slider-contect [title]="event.title" [shortText]="event.shortText"></slider-contect>
+        <slider-contect [event]="event"></slider-contect>
       </div>
     </li>
   </ul>
