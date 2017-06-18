@@ -9,7 +9,7 @@
         <p class="">{{ event.shortText }}</p>
       </div>
       <div class="card-action" style="bottom: 0;position: absolute; border-top: 0px;">
-        <a href="#" style="color: #ffc822">PROČITAJ VIŠE</a>
+        <a href="#" style="color: #ffc822" (click)="$event.preventDefault();onReadMoreClick(event)">PROČITAJ VIŠE</a>
       </div>
     </div>
   </div>

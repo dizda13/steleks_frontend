@@ -14,7 +14,7 @@
           <p>{{event.shortText}}</p>
         </div>
         <div class="card-action">
-          <a href="#">Pročitaj više</a>
+          <a href="#"  (click)="$event.preventDefault();onReadMoreClick(event)">Pročitaj više</a>
         </div>
       </div>
     </div>

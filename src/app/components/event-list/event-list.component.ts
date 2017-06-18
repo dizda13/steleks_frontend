@@ -3,7 +3,7 @@
  */
 import {Component, Input} from "@angular/core";
 import {Event} from "../../models/Event";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {EventService} from "../../services/event.service";
 import {Media} from "../../models/Media";
 @Component({
@@ -18,7 +18,7 @@ export class EventListComponent{
   events: Event[];
   medias: Media[];
 
-  constructor(private route: ActivatedRoute, private eventService: EventService){
+  constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router){
     if(this.route.snapshot.url[0].path=="news") {
       eventService.getEvents().subscribe(response=>this.events=response);
       this.type = "Novosti";
@@ -27,5 +27,9 @@ export class EventListComponent{
       this.type = "Dešavanja";
       eventService.getEvents().subscribe(response=>{return this.events=response});
     }
+  }
+
+  onReadMoreClick(event: Event) {
+    this.router.navigate(['events/' + event.id]);
   }
 }

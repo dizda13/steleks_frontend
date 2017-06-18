@@ -4,7 +4,7 @@ import {isUndefined} from "util";
  * Created by admin on 31/05/2017.
  */
 export class Event{
-  private  _id: Number;
+  private _id: Number;
 
   private _title: string;
 

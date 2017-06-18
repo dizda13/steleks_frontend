@@ -19,7 +19,6 @@ export class SliderContectComponent{
   }
 
   onReadMoreClick() {
-    console.log("CLICKED ON ID! " + this.event);
     this.router.navigate(['events/' + this.event.id]);
   }
 }
