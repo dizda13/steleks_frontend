@@ -1,0 +1,29 @@
+<div class="row">
+<div class="col s6 push-s3 z-depth-5" style="margin-top: 10%;margin-bottom: 15%; min-height: 450px; background: #181818">
+  <form class="" style="display: block">
+      <div class="input-field col s10 push-s1" style="margin-top: 15%;" >
+        <input id="title" type="text" class="validate" (keyup)="setTitle($event)" style="color: #ffc822">
+        <label for="title">Title</label>
+      </div>
+
+      <div class="input-field col s10 push-s1" style="" >
+        <input id="short_text" type="text" class="validate" (keyup)="setShortText($event)" style="color: #ffc822">
+        <label for="short_text">Short text</label>
+      </div>
+
+      <div class="input-field col s10 push-s1" style="" >
+          <textarea id="long_text" class="materialize-textarea" (keyup)="setLongText($event)" style="color: #ffc822"></textarea>
+        <label for="long_text">Long text</label>
+      </div>
+
+      <div class="input-field col s10 push-s1" style="margin-bottom: 15%;" >
+        <input id="duration" type="number" type="text" class="validate" (keyup)="setDuration($event)" style="color: #ffc822">
+        <label for="duration">Duration in days</label>
+      </div>
+    
+
+    <a class="waves-effect waves-light btn" style="background: #ffc822; color: #2a2a2a; float: right; margin-right: 10%; margin-top: 5%" (click)="login()">Prijavi se</a>
+
+  </form>
+</div>
+</div>

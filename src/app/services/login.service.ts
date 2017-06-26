@@ -7,7 +7,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class LoginService{
 
-  private static EVENTSPATH: string='http://localhost:8080/users/accesstoken';
+  private static EVENTSPATH: string='http://192.168.33.181:8080/users/accesstoken';
   headers: Headers = new Headers({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*" });
   options: RequestOptions = new RequestOptions({ headers: this.headers });
 
