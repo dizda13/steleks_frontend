@@ -14,7 +14,7 @@ import {Event} from "../models/Event";
 @Injectable()
 export class EventService {
 
-  private static EVENTSPATH: string='http://http://192.168.33.181:8080/events';
+  private static EVENTSPATH: string='http://192.168.33.181:8080/events';
   headers: Headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': "8080", 'Authorization': localStorage.getItem('token') });
   options: RequestOptions = new RequestOptions({ headers: this.headers });
   events: Event[];
