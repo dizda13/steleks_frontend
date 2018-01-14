@@ -18,4 +18,8 @@ export class NavbarComponent{
   redirectOnLogin(){
     this.router.navigate(['/login']);
   }
+
+  onRegisterClick(){
+    this.router.navigate(['/registration']);
+  }
 }

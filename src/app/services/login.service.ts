@@ -3,6 +3,7 @@
  */
 import {Headers, Http, RequestOptions, Response} from "@angular/http";
 import {Injectable} from "@angular/core";
+import { User } from "../components/registration/user.model";
 
 @Injectable()
 export class LoginService{
@@ -12,6 +13,10 @@ export class LoginService{
   options: RequestOptions = new RequestOptions({ headers: this.headers });
 
   constructor(private http: Http){}
+
+  loginUser(user: User) {
+    return this.http.post(LoginService.EVENTSPATH, user, this.options).do(response=>{localStorage.setItem('token', response.json().token); localStorage.getItem('token')});
+  }
 
   login(username: string, password: string){
     return this.http.post(LoginService.EVENTSPATH, {'username':username, 'password': password} , this.options).subscribe(response=>{localStorage.setItem('token', response.json().token); localStorage.getItem('token')});
