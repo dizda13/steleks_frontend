@@ -1,33 +1,32 @@
 /**
  * Created by admin on 06/06/2017.
  */
-import {Component} from "@angular/core";
-import {LoginService} from "../../services/login.service";
+import { Component } from '@angular/core';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'login',
   templateUrl: 'login.component.html'
 })
 
-export class LoginComponent{
+export class LoginComponent {
 
   username: string;
   passowrd: string;
 
-  constructor(private loginService: LoginService){
+  constructor(private loginService: LoginService) {
 
   }
 
-  getPass(event: any){
+  getPass(event: any) {
     this.passowrd = event.target.value
   }
 
-  getUser(event: any){
+  getUser(event: any) {
     this.username = event.target.value
   }
 
-  login(){
-    console.log(this.username + " " + this.passowrd);
-    this.loginService.login(this.username,this.passowrd);
+  login() {
+    this.loginService.login(this.username, this.passowrd);
   }
 }
