@@ -22,6 +22,7 @@ export class LoginService {
       user,
     ).do(response => {
       localStorage.setItem('token', response.json().token);
+      localStorage.setItem('userId', response.json().userId);
       localStorage.getItem('token')
     });
   }
@@ -36,6 +37,7 @@ export class LoginService {
       {'username': username, 'password': password})
       .subscribe(response => {
         localStorage.setItem('token', response.json().token);
+        localStorage.setItem('userId', response.json().userId);
         localStorage.getItem('token');
         this.router.navigate([this.redirect]);
       });

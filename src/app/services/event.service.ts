@@ -3,20 +3,20 @@
  */
 import {Injectable} from '@angular/core';
 import {Headers, Http, RequestOptions, Response} from '@angular/http';
-import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 import {Media} from '../models/Media';
 import {EventResponseObject} from '../models/EventResponseObject';
 import {Event} from '../models/Event';
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
 export class EventService {
 
-  private static EVENTSPATH: string = 'http://localhost:8080/events';
+  private static EVENTSPATH = 'http://localhost:8080/events';
   events: Event[];
-  eventResponseOBjet: EventResponseObject;
+  eventResponseObject: EventResponseObject;
 
   constructor(private http: Http) {
   }
@@ -30,7 +30,7 @@ export class EventService {
   }
 
   addEvent(event: Event) {
-    return this.http.post(EventService.EVENTSPATH, JSON.stringify(event)).map(response => <Event>response.json());
+    return this.http.post(EventService.EVENTSPATH + '/events', JSON.stringify(event)).map(response => <Event>response.json());
   }
 
   getEvent(eventId: number): Observable<Event> {

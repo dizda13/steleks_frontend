@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {Event} from '../../models/Event'
-import {EventService} from '../../services/event.service'
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Event } from '../../models/Event'
+import { EventService } from '../../services/event.service'
 
 @Component({
   selector: 'add-events',
@@ -13,7 +13,8 @@ export class AddEventComponent {
   event: Event;
 
   constructor(private router: Router, private eventService: EventService) {
-
+    this.event = new Event();
+    this.event.createdById = Number.parseInt(localStorage.getItem('userId'));
   }
 
   setTitle(event: any) {
@@ -29,11 +30,11 @@ export class AddEventComponent {
   }
 
   setDuration(event: any) {
-    this.event.duration = event.target.value
+    this.event.duration = Number.parseInt(event.target.value)
   }
 
   addEvent() {
-    this.eventService.addEvent(this.event);
+    this.eventService.addEvent(this.event).subscribe();
   }
 
 }
