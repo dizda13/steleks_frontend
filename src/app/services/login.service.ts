@@ -10,7 +10,7 @@ import {User} from '../components/registration/user.model';
 @Injectable()
 export class LoginService {
 
-  private static EVENTSPATH = 'http://localhost:8080/users/accesstoken';
+  private static EVENTSPATH = 'https://192.168.56.101:8443/users/accesstoken';
   private redirect: string;
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) {

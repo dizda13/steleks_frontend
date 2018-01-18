@@ -9,7 +9,7 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class RegistrationService {
 
-  private static EVENTSPATH: string='http://localhost:8080/users/users';
+  private static EVENTSPATH: string='https://192.168.56.101:8443/users/users';
   headers: Headers = new Headers({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "*" });
   options: RequestOptions = new RequestOptions({ headers: this.headers });
 

@@ -6,7 +6,7 @@ import {ROLES} from './ROLES';
 
 @Injectable()
 class UserService {
-  private static USERSPATH = 'http://localhost:8080/users';
+  private static USERSPATH = 'https://192.168.56.101:8443/users';
 
   options = new RequestOptions();
 

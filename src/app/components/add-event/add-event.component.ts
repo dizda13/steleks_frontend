@@ -34,7 +34,8 @@ export class AddEventComponent {
   }
 
   addEvent() {
-    this.eventService.addEvent(this.event).subscribe();
+    this.event.createdById = parseInt(localStorage.getItem('userId'), 10);
+    this.eventService.addEvent(this.event).subscribe(res => this.router.navigate['/events']);
   }
 
 }

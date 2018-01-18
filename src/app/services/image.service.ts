@@ -8,7 +8,7 @@ import {Media} from '../models/Media';
 
 @Injectable()
 export class ImageService {
-  private static EVENTSPATH = 'http://localhost:8080/events';
+  private static EVENTSPATH = 'https://192.168.56.101:8443/events';
 
   constructor(private http: Http) {
   }

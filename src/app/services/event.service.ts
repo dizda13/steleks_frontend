@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EventService {
 
-  private static EVENTSPATH = 'http://localhost:8080/events';
+  private static EVENTSPATH = 'https://192.168.56.101:8443/events';
   events: Event[];
   eventResponseObject: EventResponseObject;
 
@@ -28,11 +28,11 @@ export class EventService {
   }
 
   addEvent(event: Event) {
-    return this.http.post(EventService.EVENTSPATH + '/events', JSON.stringify(event)).map(response => <Event>response.json());
+    return this.http.post(EventService.EVENTSPATH + '/events', event).map(response => <Event>response.json());
   }
 
   getEvent(eventId: number): Observable<Event> {
-    return this.http.get(EventService.EVENTSPATH + '/events/' + eventId + '?projection=eventProjection')
+    return this.http.get(EventService.EVENTSPATH + '/events/' + eventId)
       .map(response => <Event>response.json());
   }
 
