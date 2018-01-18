@@ -3,15 +3,16 @@
  */
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html'
 })
 
-export class NavbarComponent{
+export class NavbarComponent {
 
-  constructor(private router: Router){
+  constructor(private router: Router, public loginService: LoginService) {
 
   }
 

@@ -1,0 +1,32 @@
+
+<div class="container">
+  <h4 style="color: #a1a1a1; border-left: 5px solid; border-left-color: #ffc822">&nbsp; &nbsp; ČLANOVI</h4>
+  <table style="margin: 5% 0%">
+    <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Has admin roles</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <div class="switch">
+          <label>
+            Off
+            <input type="checkbox" (change)="test($event, user.id)" [value]="loginService.isAdmin()" >
+            <span class="lever"></span>
+            On
+          </label>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

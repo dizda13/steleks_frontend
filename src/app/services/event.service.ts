@@ -10,7 +10,6 @@ import {EventResponseObject} from '../models/EventResponseObject';
 import {Event} from '../models/Event';
 import { Observable } from 'rxjs/Observable';
 
-
 @Injectable()
 export class EventService {
 
@@ -21,11 +20,10 @@ export class EventService {
   constructor(private http: Http) {
   }
 
-
   getEvents(): Observable<Event[]> {
     return this.http.get(EventService.EVENTSPATH + '/events').map(response => {
-      this.events = <Event[]>response.json()._embedded.events;
-      return this.events;
+        this.events = <Event[]>response.json()._embedded.events;
+        return this.events;
     });
   }
 

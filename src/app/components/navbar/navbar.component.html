@@ -3,15 +3,16 @@
     <a href="home">
       <img src="http://steleks.ba/wp-content/themes/steleks_theme/img/logo.png" class="brand-logo col offset-s1" >
     </a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down col offset-s3">
-      <li><a href="home" class="text-color">Početna</a></li>
-      <li><a href="badges" class="text-color">Udruženje</a></li>
-      <li><a href="news" class="text-color">Novosti</a></li>
-      <li><a href="events" class="text-color">Dešavanja</a></li>
+    <ul *ngIf="loginService.isLoggedIn()" id="nav-mobile" class="left hide-on-med-and-down col offset-s3">
+      <li><a routerLink="home" class="text-color">Početna</a></li>
+      <li><a routerLink="news" class="text-color">Novosti</a></li>
+      <li><a routerLink="events" class="text-color">Dešavanja</a></li>
+      <li *ngIf="loginService.isAdmin()"><a routerLink="users-list" class="text-color">Članovi</a></li>
     </ul>
     <ul class="right hide-on-med-and-down col pull-s1">
-      <li><a class="waves-effect waves-yellow btn black-text white z-depth-0" (click)="redirectOnLogin()" >Prijavi Se</a></li>
-      <li><a class="waves-effect waves-light btn z-depth-0" style="background-color: #ffc822" (click)="onRegisterClick()">Postani član</a></li>
+      <li *ngIf="!loginService.isLoggedIn()"><a class="waves-effect waves-yellow btn black-text white z-depth-0" (click)="redirectOnLogin()" >Prijavi Se</a></li>
+      <li *ngIf="!loginService.isLoggedIn()"><a class="waves-effect waves-light btn z-depth-0" style="background-color: #ffc822" (click)="onRegisterClick()">Postani član</a></li>
+      <li *ngIf="loginService.isLoggedIn()"><a class="waves-effect waves-light btn z-depth-0" style="background-color: #ffc822" (click)="loginService.logout()">Logout</a></li>
     </ul>
   </div>
 </nav>

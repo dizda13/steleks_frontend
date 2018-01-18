@@ -6,6 +6,7 @@ import {EventListComponent} from './components/event-list/event-list.component';
 import {ReadEventComopnent} from './components/read-event/read-event.component';
 import {AddEventComponent} from './components/add-event/add-event.component';
 import {AuthGuard} from './services/AuthGuard';
+import {UserListComponent} from './components/user-list/user-list';
 
 /**
  * Created by admin on 06/06/2017.
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
   {path: 'events', component: EventListComponent, canActivate: [AuthGuard]},
   {path: 'news', component: EventListComponent, canActivate: [AuthGuard]},
   {path: 'events/:id', component: ReadEventComopnent, canActivate: [AuthGuard]},
-  {path: 'addEvent', component: AddEventComponent, canActivate: [AuthGuard]},
+  {path: 'add-event', component: AddEventComponent, canActivate: [AuthGuard]},
+  {path: 'users-list', component: UserListComponent, canActivate: [AuthGuard]},
   {path: '**', component: Home, canActivate: [AuthGuard]},
 ];
 

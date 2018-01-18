@@ -1,25 +1,29 @@
 /**
  * Created by admin on 01/06/2017.
  */
-export class Users{
-  private id: number;
+class User {
+  id: number;
 
-  private cardNumber: number;
+  cardNumber: number;
 
-  private firstName: number;
+  firstName: number;
 
-  private lastName: string;
+  lastName: string;
 
-  private registrationDate: Date;
+  registrationDate: Date;
 
-  private email: string;
+  email: string;
 
-  private contactNumber: string;
+  contactNumber: string;
 
-  private passwordHash: string;
+  passwordHash: string;
 
-  private username: string;
+  username: string;
 
-  private profilePictureUrl: string;
+  profilePictureUrl: string;
+
+  roles: string[];
 
 }
+
+export { User }

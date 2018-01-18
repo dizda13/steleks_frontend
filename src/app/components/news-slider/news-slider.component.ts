@@ -26,12 +26,12 @@ export class NewsSliderComponent implements OnInit {
     this.getEvents();
   }
 
-  constructor(private eventService: EventService, private imageService:ImageService){
+  constructor(private eventService: EventService, private imageService: ImageService){
   }
 
   getEvents(){
-    this.eventService.getEvents().subscribe(response=>{
-      this.events=response;
+    this.eventService.getEvents().subscribe(response => {
+      this.events = response;
     });
   }
 

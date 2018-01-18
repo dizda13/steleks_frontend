@@ -23,7 +23,8 @@ export class LoginService {
     ).do(response => {
       localStorage.setItem('token', response.json().token);
       localStorage.setItem('userId', response.json().userId);
-      localStorage.getItem('token')
+      localStorage.getItem('token');
+      localStorage.setItem('roles', response.json().roles);
     });
   }
 
@@ -38,14 +39,30 @@ export class LoginService {
       .subscribe(response => {
         localStorage.setItem('token', response.json().token);
         localStorage.setItem('userId', response.json().userId);
+        localStorage.setItem('roles', response.json().roles);
         localStorage.getItem('token');
-        this.router.navigate([this.redirect]);
+        this.router.navigate([this.redirect ? this.redirect : '/home']);
       });
   }
 
 
   logout() {
     return this.http.delete(LoginService.EVENTSPATH + '/' + localStorage.getItem('token'))
-      .subscribe(response => response);
+      .subscribe(response => {
+          localStorage.removeItem('token');
+          localStorage.removeItem('userId');
+          this.router.navigate(['/login']);
+          return response;
+        }
+      )
+      ;
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  isAdmin() {
+    return localStorage.getItem('roles').indexOf('ADMIN') !== -1;
   }
 }

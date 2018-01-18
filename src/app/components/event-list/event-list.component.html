@@ -1,10 +1,12 @@
 <div class="row container">
   <div class="col s12">
-    <h2 class="header" style="color: #a1a1a1; border-left: 5px solid; border-left-color: #ffc822; padding-left: 1%">{{this.type}}</h2>
+    <h2 class="header col s11" style="color: #a1a1a1; border-left: 5px solid; border-left-color: #ffc822; padding-left: 1%;">{{this.type}}</h2>
 
-    <div class="card horizontal z-depth-4" *ngFor="let event of events">
+    <a routerLink="/add-event" class="btn-floating btn-large waves-effect waves-light" style="background-color: #ffc822;margin: 1.78rem 0 1.424rem 0;"><i class="material-icons">add</i></a>
+
+    <div class="card horizontal z-depth-4 col s12" *ngFor="let event of events">
       <div class="card-image">
-        <img (hidden)="isUndefined(event.mediaSet)" [src]="event.mediaSet[0].contentUrl">
+        <img *ngIf="event.mediaSet && event.mediaSet.length" [src]="event.mediaSet[0].contentUrl">
       </div>
       <div class="card-stacked">
         <div class="card-content">

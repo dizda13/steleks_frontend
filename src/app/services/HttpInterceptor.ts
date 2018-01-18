@@ -46,7 +46,10 @@ class HttpInterceptor extends Http {
     }
 
     options.headers.set('Authorization', localStorage.getItem('token'));
-    options.headers.set('Content-Type', 'application/json');
+    if (!options.headers.get('Content-Type')) {
+      options.headers.set('Content-Type', 'application/json');
+    }
+
     options.headers.set('Access-Control-Allow-Origin', '8080');
 
     return options;

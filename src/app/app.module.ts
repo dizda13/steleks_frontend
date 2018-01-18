@@ -24,6 +24,9 @@ import {ReadEventComopnent} from './components/read-event/read-event.component';
 import { AddEventComponent } from './components/add-event/add-event.component'
 import {AuthGuard} from './services/AuthGuard';
 import {httpFactory} from './services/InterceportFactory';
+import {ErrorHandler} from './services/ErrorHandler';
+import {UserListComponent} from './components/user-list/user-list';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import {httpFactory} from './services/InterceportFactory';
     Home,
     EventListComponent,
     ReadEventComopnent,
-    AddEventComponent
+    AddEventComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import {httpFactory} from './services/InterceportFactory';
       provide: Http,
       useFactory: httpFactory,
       deps: [XHRBackend, RequestOptions]
-    }
+    },
+    ErrorHandler,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })
