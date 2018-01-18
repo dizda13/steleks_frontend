@@ -14,7 +14,7 @@ import {UserListComponent} from './components/user-list/user-list';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
-  { path: 'registration', component: RegistrationComponent },
+  {path: 'registration', component: RegistrationComponent},
   {path: 'events', component: EventListComponent, canActivate: [AuthGuard]},
   {path: 'news', component: EventListComponent, canActivate: [AuthGuard]},
   {path: 'events/:id', component: ReadEventComopnent, canActivate: [AuthGuard]},
